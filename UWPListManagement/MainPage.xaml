@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="UWPListManagement.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPListManagement"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!-- THIS IS A COMMENT -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="saveBtn" Grid.Column="0" Content="Save" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#330060FF" Click="SaveBtn_Click"></Button>
+            <TextBox x:Name="SearchQueryText" Grid.Column="1" Background="#66FFFFFF"></TextBox>
+            <Button Grid.Column="2" Content="Search" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="SearchBtn" Background="#3300FFB2"></Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ListBox ItemsSource="{Binding Path=Items, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FFFFC9F3"></ListBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Add ToDo" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="AddToDoClick" Grid.ColumnSpan="1" Background="#3300FA0D"></Button>
+            <Button Content="Edit ToDo" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="EditToDoClick" Grid.ColumnSpan="1" Background="#33A100FF"></Button>
+            <Button Content="Add Appointment" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Background="#33E9FF00" Click="AddAppointment"></Button>
+            <Button Content="Edit Appointment" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Background="#33006AFF" Click="EditAppointment"></Button>
+            <Button Content="Delete" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Background="#33FF0000" Click="DeleteToDoClick"></Button>
+            <Button x:Name="DoneIt" Content="Done it" Grid.Column="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="1" Background="#33FFFFFF" Click="DoneIt_Click" FontWeight="Bold"></Button>
+        </Grid>
+    </Grid>
+</Page>
